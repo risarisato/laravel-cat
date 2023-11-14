@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest; // バリデーション処理をContactRequestから呼び出すことで肥大化を防ぐ
+use App\Mail\ContactAdminMail; // メール送信処理をContactAdminMailから呼び出す
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // ログ出力を行うために追加
+use Illuminate\Support\Facades\Mail; // メール送信を行うために追加
 
 
 class ContactController extends Controller
@@ -25,7 +27,10 @@ class ContactController extends Controller
     
         // これ以降の行は入力エラーがなかった場合のみ実行されます
         // use Illuminate\Support\Facades\Log; を追加しておくと、ログ出力ができます
-        Log::debug($validated['name']. 'さんよりお問い合わせがありました');
+        //Log::debug($validated['name']. 'さんよりお問い合わせがありました');
+
+        // メール送信処理
+        Mail::to('admin@example.com')->send(new ContactAdminMail($validated));
         return to_route('contact.complete');
     }
 

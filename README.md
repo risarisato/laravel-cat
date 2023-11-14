@@ -2,27 +2,24 @@
 35メール送信機能を作る
 
 ## バリデーション作成
-- 今回は、コントローラーにバリデーションを記述する＞良くない
-- $validated = $request->validate([`name` => 'required', 'string', 'max:255'],[]... ]);
-- リダイレクトさせる：return to_route('contact.complete');
-- view側で、@if ($errors->any())から@foreach ($errors->all() as $error)で、エラーがある場合に表示される
-- 名前ならばif ($errors->has('name'))を使うと、エラーがある場合に表示される
-- {{ $errors->first('name') }}のfirstは、最初のエラーを表示する
+- コントローラーにバリデーション処理の記述は良くない
+- リダイレクトさせる：`return to_route('contact.complete');`これが`web.php`の終わり
+- view側で、`@if ($errors->any())`から`@foreach ($errors->all() as $error)`で、エラーがある場合に表示させる
+- 名前ならば`@if ($errors->has('name'))`を使うと、エラーがある場合に表示される
+- `{{ $errors->first('name') }}`の`first`は、最初のエラーを表示する
 
-- 入力内容の再取得
-- <input id="name" type="text" name="name" value="{{ old('name') }}">で、入力内容を再取得できる
-
+#### 入力内容の再取得
+- `<input id="name" type="text" name="name" value="{{ old('name') }}">`で、入力内容を再取得できる
 - バリデーションのカスタマイズ：コントローラーにバリデーションを記述すると、肥大化する
-- ./vendor/bin/sail artisan make:request ContactRequest で、バリデーションだけをフォームリクエストに分割する
-- バリデーションのルールを、ContactRequestに移動する
-- フォームリクエストには認可「authorize」：権限フォームに入れるか、ルール「rule」がある
+- `./vendor/bin/sail artisan make:request ContactRequest`で、バリデーションだけをフォームリクエストに分割する
+- バリデーションのルールを、ContactRequestに記述する
 
-#### 日本語化したバリデーションにさせる
-- https://github.com/Laravel-Lang/lang
-- ブランチTagsのlaravelバージョンの最新ものを選択して「code」から「Download ZIP」でDLする
-- lang-10.6.5zipを解凍して、localesの「jp」をLaravelプロジェクトの/lang/jaに入れる
-- 設定は、config/app.phpの「locale」を「ja」にする
-- lang\ja\validation.phpに属性を追加する:'attributes' => ['name' => '名前','' => ''] とする
+##### 日本語化したバリデーションにさせる
+- `https://github.com/Laravel-Lang/lang`
+- ブランチ`Tags`のlaravelバージョンの最新ものを選択して`code`から`Download ZIP`でDLする
+- lang-10.6.5zipを解凍して、localesの「jp」をLaravelプロジェクトの`/lang/ja`に入れる
+- 設定は、`config/app.php`の「locale」を「ja」にする
+- `lang\ja\validation.php`に属性を追加する`:例)'attributes' => ['name' => '名前','' => '']` とする
 
 ## コントローラー作成
 - `./vendor/bin/sail artisan make:controller ContactController`

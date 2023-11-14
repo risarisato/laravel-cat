@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// トップページのルーティング
 Route::get('/', function () {
     return view('index');
 });
+
+// お問い合わせページのルーティング
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+// お問い合わせ内容バリデーション処理
+Route::post('/contact', [ContactController::class, 'sendMail']);
+
+// お問い合わせ内容確認
+Route::get('/contact/complete', [ContactController::class, 'complete'])->name('contact.complete');

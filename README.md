@@ -1,4 +1,8 @@
 ## laravel実践練習
+30電話番号のルール
+
+## コントローラー作成
+- `./vendor/bin/sail artisan make:controller ContactController`
 
 ### github
 - `git init` ：初期化
@@ -13,3 +17,4 @@
 - WSLのパスワードを求められる
 - `./vendor/bin/sail up -d` ：立ち上げ
 - `./vendor/bin/sail down` ：停止
+

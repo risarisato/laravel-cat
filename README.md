@@ -4,16 +4,17 @@
 ## Mailableクラスの作成
 - `./vendor/bin/sail artisan -V`で、バージョン確認
 - `./vendor/bin/sail composer update`で、composerのアップデート
-- `./vendor/bin/sail artisan make:mail ContactAdminMail`で、Mailableクラスを作成する
->>app/Mail/ContactAdminMail.phpが作成される
+- `./vendor/bin/sail artisan make:mail XXXMail`で、Mailableクラスを作成する
+
+#### app/Mail/ContactAdminMail.phpが作成される
 - envelopeはメールの差出人や件名を指定するメソッド
 - contentはメールの本文を指定するメソッド
 - attachmentsは添付ファイルを指定するメソッド
 
-#### `http://localhost:8025`で、メールの確認ができる
+#### localhost:8025 で、メールの確認ができる
 - mailpitのコンテナが立ち上がっていることが前提
 
-"""
+~~~
 docker-compose.yml
     mailpit:
         image: 'axllent/mailpit:latest'
@@ -22,7 +23,7 @@ docker-compose.yml
             - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
         networks:
             - sail
-"""
+~~~
 
 
 ## バリデーション作成

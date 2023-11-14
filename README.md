@@ -6,7 +6,7 @@
 - `./vendor/bin/sail composer update`で、composerのアップデート
 - `./vendor/bin/sail artisan make:mail XXXMail`で、Mailableクラスを作成する
 
-#### app/Mail/ContactAdminMail.phpが作成される
+#### app/Mail/XXXXMail.phpが作成される
 - envelopeはメールの差出人や件名を指定するメソッド
 - contentはメールの本文を指定するメソッド
 - attachmentsは添付ファイルを指定するメソッド

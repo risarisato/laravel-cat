@@ -1,5 +1,29 @@
 ## laravel実践練習
-35メール送信機能を作る
+39 マイグレーション
+
+## マイグレーションとは、データベース構造を変更するための仕組み
+- `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
+- `http://localhost:8888/`で、phpmyadminにアクセスする
+~~~
+docker-compose.yml
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        depends_on:
+            - mysql
+        ports:
+            - 8888:80
+        environment:
+            PMA_USER: '${DB_USERNAME}'
+            PMA_PASSWORD: '${DB_PASSWORD}'
+            PMA_HOST: mysql
+        networks:
+            - sail
+~~~
+- `./vendor/bin/sail artisan make:migration create_blogs_table`で、テーブルを作成する
+- `./vendor/bin/sail artisan migrate`で、「create_blogs_table」のマイグレーションを実行する
+- `./vendor/bin/sail artisan migrate:status`で、マイグレーションの状態を確認する
+- `./vendor/bin/sail artisan migrate:rollback`で、Batch/Statusが大きいものロールバックする
+- そのためXXXXYYMMHHMMSS_create_XXXX_table.phpの「UP」はテーブル追加、「donw」テーブル削除
 
 ## Mailableクラスの作成
 - `./vendor/bin/sail artisan -V`で、バージョン確認

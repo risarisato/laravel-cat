@@ -36,3 +36,6 @@ Route::get('/admin/blogs/create', [AdminBlogController::class, 'create'])->name(
 // リダイレクトを設定したため、/admin/blogs/createにアクセスすると、/admin/blogs/createにリダイレクトされる
 Route::post('/admin/blogs', [AdminBlogController::class, 'store'])->name('admin.blogs.store');
 // リダイレクトを設定したため、/admin/blogsにアクセスすると、/admin/blogsにリダイレクトされる
+
+// ブログ編集ページのルーティング
+Route::get('/admin/blogs/{blog}', [AdminBlogController::class, 'edit'])->name('admin.blogs.edit');

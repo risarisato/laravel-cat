@@ -1,6 +1,8 @@
 ## laravel実践練習
 41 モデルクラスの作成<br>
-42 データ取得
+42 データ取得resources\views\admin\blogs\index.blade.phpのHTMLのインデントの@foreach($blogs as $blog)から@endforeachに注意
+- findOrFail()は、IDがないページで、見つからない場合は404エラーを返す
+
 
 ## モデルクラスの作成
 - 一括代入した場合`protected $fillable = ['title', 'body'];`で、代入可能なカラムを指定しないとエラーになる

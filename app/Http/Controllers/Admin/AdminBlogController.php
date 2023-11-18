@@ -14,7 +14,9 @@ class AdminBlogController extends Controller
     // ブログ一覧
     public function index()
     {
-        return view('admin.blogs.index');
+        $blogs = Blog::all();
+        //dd($blogs); // DBから取得できるかデバッグ用
+        return view('admin.blogs.index', ['blogs' => $blogs]);
     }
 
     // ブログ登録
@@ -42,12 +44,12 @@ class AdminBlogController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // ブログ編集
     public function edit(string $id)
     {
-        //
+        //$blog = Blog::find($id);
+        $blog = Blog::findOrFail($id); // データがない場合は404エラーを返す
+        return view('admin.blogs.edit', ['blog' => $blog]);
     }
 
     /**

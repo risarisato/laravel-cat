@@ -7,7 +7,11 @@
     <h1 class="mt-2 text-4xl font-bold font-heading text-center">ねこに癒やしてもらいませんか？</h1>
     <p class="text-center pt-5">ねこの可愛い仕草、自由気ままな雰囲気を見ることはもちろん、<br>
       ただ同じ空間にいるだけでも癒やされます<br>
-      当店自慢のフワッフワのねこに触れ合うことで「幸せホルモン」が補給しませんか？</p>
+      当店自慢のフワッフワのねこに触れ合うことで「幸せホルモン」が補給しませんか？<br>
+      <a href="/admin/blogs/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog作成】</a><br>
+      <a href="/admin/blogs" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog一覧】</a>
+
+    </p>
     <div class="absolute right-0 bottom-0 transform translate-y-16">
       <a href="#"><img src="/images/index/video.jpg" alt="" class="shadow-lg"></a>
     </div>

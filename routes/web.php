@@ -27,3 +27,12 @@ Route::post('/contact', [ContactController::class, 'sendMail']);
 
 // お問い合わせ内容確認
 Route::get('/contact/complete', [ContactController::class, 'complete'])->name('contact.complete');
+
+use App\Http\Controllers\Admin\AdminBlogController; // 追加
+// ブログ一覧ページのルーティング
+Route::get('/admin/blogs', [AdminBlogController::class, 'index'])->name('admin.blogs.index');
+// リダイレクトを設定したため、/admin/blogsにアクセスすると、/admin/blogs/indexにリダイレクトされる
+Route::get('/admin/blogs/create', [AdminBlogController::class, 'create'])->name('admin.blogs.create');
+// リダイレクトを設定したため、/admin/blogs/createにアクセスすると、/admin/blogs/createにリダイレクトされる
+Route::post('/admin/blogs', [AdminBlogController::class, 'store'])->name('admin.blogs.store');
+// リダイレクトを設定したため、/admin/blogsにアクセスすると、/admin/blogsにリダイレクトされる

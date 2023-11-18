@@ -4,26 +4,15 @@
 
 ## モデルクラスの作成
 - 一括代入した場合`protected $fillable = ['title', 'body'];`で、代入可能なカラムを指定しないとエラーになる
-- ./vendor/bin/sail artisan make:model Xxxx :モデルクラスの作成
-- ./vendor/bin/sail artisan make:model Blog -cr で、コントローラーとルーティングの同時作成
-- ./vendor/bin/sail artisan make:Controller Admin/AdminBlogController :サブディレクトも一緒に作成
+- `./vendor/bin/sail artisan make:model Xxxx` モデルクラスの作成
+- `./vendor/bin/sail artisan make:model Blog -cr` で、コントローラーとルーティングの同時作成
+- `./vendor/bin/sail artisan make:Controller Admin/AdminBlogController` サブディレクトも一緒に作成
 
-【オプション機能】
-<tr>
-    <td>-m</td>
-    <td>マイグレーションファイルの同時作成</td>
-</tr>
-<tr>
-    <td>-c</td>
-    <td>コントローラーの同時作成</td>
-</tr>
-<tr>
-    <td>-cr</td>
-    <td>リソースコントローラーの作成と同時にルーティングの設定も行う</td>
-</tr>
 
-#### web.phpにuse App\Http\Controllers\Admin\XXXXController; を忘れずに
-- ./vendor/bin/sail artisan make:request Admin/StoreBlogReuest :リクエストクラスのバリデーションを作成
+#### web.phpに追加する
+- `./vendor/bin/sail artisan make:request Admin/StoreBlogReuest` リクエストクラスのバリデーションを作成
+- `use App\Http\Controllers\Admin\XXXXController;` を忘れずに
+
 
 
 ## マイグレーションとは、データベース構造を変更するための仕組み

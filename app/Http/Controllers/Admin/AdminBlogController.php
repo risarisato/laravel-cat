@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Blog;
+use App\Models\Blog; // 追加
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBlogRequest;
+use App\Http\Requests\Admin\UpdateBlogRequest; // 追加
 
 
 
@@ -14,8 +15,14 @@ class AdminBlogController extends Controller
     // ブログ一覧
     public function index()
     {
-        $blogs = Blog::all();
+        //$blogs = Blog::all(); // DBから全てのデータを取得する
         //dd($blogs); // DBから取得できるかデバッグ用
+
+        // クエリビルダで10件を最新のものから取得する
+        //$blogs = Blog::latest('updated_at')->limit(10)->get();
+
+        // ページネーションを使って10件を最新のものから取得する
+        $blogs = Blog::latest('updated_at')->paginate(7);
         return view('admin.blogs.index', ['blogs' => $blogs]);
     }
 
@@ -45,26 +52,40 @@ class AdminBlogController extends Controller
     }
 
     // ブログ編集
-    public function edit(string $id)
+    public function edit(Blog $blog)
     {
         //$blog = Blog::find($id);
-        $blog = Blog::findOrFail($id); // データがない場合は404エラーを返す
+
+        //public function edit(Blog $Blog) をしているので、Blogモデルのインスタンスが渡される
+        //$blog = Blog::findOrFail($id); // データがない場合は404エラーを返す
         return view('admin.blogs.edit', ['blog' => $blog]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    // ブログ更新処理
+    public function update(UpdateBlogRequest $request, string $id)// バリデーションを追加
     {
-        //
+        $blog = Blog::findOrFail($id); // データがない場合は404エラーを返す
+        $updateData = $request->validated(); // バリデーション済みの値を取得
+
+        // 画像を変更する場合
+        if ($request->has('image')) {
+            // 変更前の画像は削除する
+            \Storage::disk('public')->delete($blog->image);
+            // 変更後の画像をアップロード、保存パスを更新対象データにセットする
+            $updateData['image'] = $request->file('image')->store('blog', 'public');
+        }
+        $blog->update($updateData); // 更新
+
+        return to_route('admin.blogs.index')->with('success', 'ブログを更新しました'); // リダイレクト
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // ブログ削除処理
     public function destroy(string $id)
     {
-        //
+        $blog = Blog::findOrFail($id); // データがない場合は404エラーを返す
+        $blog->delete(); // 削除
+        \Storage::disk('public')->delete($blog->image); // 画像を削除
+
+        return to_route('admin.blogs.index')->with('success', 'ブログを削除しました！'); // リダイレクト
     }
 }

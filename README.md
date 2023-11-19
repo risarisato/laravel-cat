@@ -1,6 +1,17 @@
 ## laravel実践練習
+48 コレクション
+- コレクションとは、配列を拡張したもの
+- クエリビルダと同じ感覚で、検索やソート、順番変更、集計などができる
+
+45 クエリビルダ
+- `$blogs = Blog::all();`は、「すべて」のデータを取得する
+- `$blogs = Blog::latest('updated_at')->limit(10)->get();`は、クエリビルダで、最新の10件を取得する
+- クエリビルダは、コード内でSQLを直接書くことができる
+- `./vendor/bin/sail artisan db:seed --class=BlogSeeder`で、テストデータを作成する(シード)
+
 41 モデルクラスの作成<br>
-42 データ取得resources\views\admin\blogs\index.blade.phpのHTMLのインデントの@foreach($blogs as $blog)から@endforeachに注意
+42 データ取得resources\views\admin\blogs\index.blade.php
+- blade.phpのインデントの@foreach($blogs as $blog)から@endforeachに注意
 - findOrFail()は、IDがないページで、見つからない場合は404エラーを返す
 
 
@@ -40,6 +51,7 @@ docker-compose.yml
 - `./vendor/bin/sail artisan migrate:status`で、マイグレーションの状態を確認する
 - `./vendor/bin/sail artisan migrate:rollback`で、Batch/Statusが大きいものロールバックする
 - そのためXXXXYYMMHHMMSS_create_XXXX_table.phpの「UP」はテーブル追加、「donw」テーブル削除
+- マイグレーションはスネークケースで、モデルクラスはパスカルケース(頭文字が大文字)で作成する決まりがある
 
 ## Mailableクラスの作成
 - `./vendor/bin/sail artisan -V`で、バージョン確認

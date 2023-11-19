@@ -39,3 +39,9 @@ Route::post('/admin/blogs', [AdminBlogController::class, 'store'])->name('admin.
 
 // ブログ編集ページのルーティング
 Route::get('/admin/blogs/{blog}', [AdminBlogController::class, 'edit'])->name('admin.blogs.edit');
+
+// ブログ更新処理のルーティング[put]
+Route::put('/admin/blogs/{blog}', [AdminBlogController::class, 'update'])->name('admin.blogs.update');
+
+// ブログ削除処理のルーティング[delete]
+Route::delete('/admin/blogs/{blog}', [AdminBlogController::class, 'destroy'])->name('admin.blogs.destroy');

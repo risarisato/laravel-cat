@@ -58,7 +58,9 @@ class AdminBlogController extends Controller
 
         //public function edit(Blog $Blog) をしているので、Blogモデルのインスタンスが渡される
         //$blog = Blog::findOrFail($id); // データがない場合は404エラーを返す
-        return view('admin.blogs.edit', ['blog' => $blog]);
+        $categories = \App\Models\Category::all(); // カテゴリーを全て取得する
+        $cats = \App\Models\Cat::all(); // 猫を全て取得する
+        return view('admin.blogs.edit', ['blog' => $blog, 'categories' => $categories, 'cats' => $cats]);
     }
 
     // ブログ更新処理
@@ -74,6 +76,8 @@ class AdminBlogController extends Controller
             // 変更後の画像をアップロード、保存パスを更新対象データにセットする
             $updateData['image'] = $request->file('image')->store('blog', 'public');
         }
+        $blog->category()->associate($updateData['category_id']); // カテゴリーを更新
+        $blog->cats()->sync($updateData['cats'] ?? []); // null合体演算子で猫のIDが送信されていない場合は空配列をセットする
         $blog->update($updateData); // 更新
 
         return to_route('admin.blogs.index')->with('success', 'ブログを更新しました'); // リダイレクト

@@ -1,4 +1,26 @@
 ## laravel実践練習
+49 リレーション
+- 中間テーブルとは、多対多の関係を持つテーブル：双方の外部キーを持つテーブル
+- `./vendor/bin/sail artisan make:model Category -m`で、マイグレーションファイルを作成する
+- `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
+- `./vendor/bin/sail artisan db:seed --class=CategorySeeder`で、シード作成：4件のデータを作成する
+- `./vendor/bin/sail artisan make:migration add_category_id_column_to_blogs_table`で、blogsテーブルにcategory_idカラム追加するマイグレーションファイルを作成する
+- マイグレーションをロールバックする：`./vendor/bin/sail artisan migrate:rollback`
+- `./vendor/bin/sail artisan migrate:fresh`で、マイグレーションを全てロールバックする
+- `constrained()`は、外部キー制約をつけるメソッド
+- `./vendor/bin/sail artisan db:seed --class=BlogSeeder2`
+- `./vendor/bin/sail artisan make:model Cat -m`で、マイグレーションファイルを作成する
+- `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
+- DBから読み込ませるviewで{{ $blog->category->name }} とすると、ブログのカテゴリー名の名前が表示される
+- associate()は、中間テーブルにデータを追加するメソッド
+- dissociate()は、中間テーブルからデータを削除するメソッド
+
+- AdminBlogController.phpのedit(Blog $blog)メソッドでカテゴリーを取得するして、edit.blade.phpの<option value="{{ $category->id }}">{{ $category->name }}</option>プルリクエストでカテゴリーを表示させる
+
+- UpdateBlogRequest.phpのrules()メソッドで、カテゴリーのバリデーションを追加する
+- null合体演算子`??`は、左辺がnullの場合に右辺を返す演算子→`$blog->category->name ?? ''`で、カテゴリーがない場合にエラーにならないようにする
+
+
 48 コレクション
 - コレクションとは、配列を拡張したもの
 - クエリビルダと同じ感覚で、検索やソート、順番変更、集計などができる

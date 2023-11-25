@@ -12,15 +12,13 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    // ユーザー登録のテーブルの作成で追加したカラムを、$fillableプロパティに追加
     protected $fillable = [
         'name',
         'email',
         'password',
+        'image',
+        'introduction',
     ];
 
     /**

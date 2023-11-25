@@ -9,7 +9,9 @@
       ただ同じ空間にいるだけでも癒やされます<br>
       当店自慢のフワッフワのねこに触れ合うことで「幸せホルモン」が補給しませんか？<br>
       <a href="/admin/blogs/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog作成】</a><br>
-      <a href="/admin/blogs" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog一覧】</a>
+      <a href="/admin/blogs" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog一覧】</a><br>
+      <a href="/admin/users/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者登録】</a>
+
 
     </p>
     <div class="absolute right-0 bottom-0 transform translate-y-16">

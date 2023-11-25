@@ -45,3 +45,11 @@ Route::put('/admin/blogs/{blog}', [AdminBlogController::class, 'update'])->name(
 
 // ブログ削除処理のルーティング[delete]
 Route::delete('/admin/blogs/{blog}', [AdminBlogController::class, 'destroy'])->name('admin.blogs.destroy');
+
+
+
+// ユーザー登録ページのルーティング
+Route::get('/admin/users/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('admin.users.create');
+
+// ユーザー登録処理のルーティング
+Route::post('/admin/users', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('admin.users.store');

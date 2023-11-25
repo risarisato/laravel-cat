@@ -1,5 +1,12 @@
 ## laravel実践練習
-49 リレーション
+
+## 認証機能
+- `./vendor/bin/sail artisan make:controller Admin/UserController -r --model=User`で、既に作成したモデルクラスを指定して、コントローラーを作成する
+- `./vendor/bin/sail artisan make:migration add_columns_to_users_table`で管理者用のマイグレーションファイルの作成
+- `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
+- `./vendor/bin/sail artisan make:request Admin/StoreUserRequest`で、登録のバリデーションを作成する
+
+## 49 リレーション
 - 中間テーブルとは、多対多の関係を持つテーブル：双方の外部キーを持つテーブル
 - `./vendor/bin/sail artisan make:model Category -m`で、マイグレーションファイルを作成する
 - `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
@@ -21,7 +28,7 @@
 - null合体演算子`??`は、左辺がnullの場合に右辺を返す演算子→`$blog->category->name ?? ''`で、カテゴリーがない場合にエラーにならないようにする
 
 
-48 コレクション
+## 48 コレクション
 - コレクションとは、配列を拡張したもの
 - クエリビルダと同じ感覚で、検索やソート、順番変更、集計などができる
 

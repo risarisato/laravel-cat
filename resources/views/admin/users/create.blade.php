@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <label class="block text-sm font-medium mb-2" for="image">画像:ファイル容量が2000kb以下で、解像度が100px * 100px ~ 300px</label>
+                        <label class="block text-sm font-medium mb-2" for="image">画像:ファイル容量が10000kb以下で、解像度が100px * 1000px ~ 10000px</label>
                         <div class="flex items-end">
                             <img id="previewImage" src="/images/admin/noimage.jpg" data-noimage="/images/admin/noimage.jpg" alt="" class="rounded-full shadow-md w-32">
                             <input id="image" class="block w-full px-4 py-3 mb-2" type="file" accept='image/*' name="image">

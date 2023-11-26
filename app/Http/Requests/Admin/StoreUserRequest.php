@@ -23,9 +23,9 @@ class StoreUserRequest extends FormRequest
                 'required',
                 'file', // ファイルがアップロードされている
                 'image', // 画像ファイルである
-                'max:2000', // ファイル容量が2000kb以下である
+                'max:10000', // ファイル容量が10000kb以下である
                 'mimes:jpeg,jpg,png', // 形式はjpegかpng
-                'dimensions:min_width=100,min_height=100,max_width=300,max_height=300', // 画像の解像度が100px * 100px ~ 300px * 300px
+                'dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000', // 画像の解像度が100px * 100px ~ 300px * 300px
             ],
             'introduction' => ['required', 'string', 'max:255'],
         ];

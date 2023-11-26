@@ -34,7 +34,8 @@ class UserController extends Controller
         User::create($validated);
 
         // リダイレクト先を変更
-        return back()->with('success', 'ユーザー登録が完了しました');
+        //return back()->with('success', 'ユーザー登録が完了しました');
+        return redirect()->route('admin.users.create')->with('success', 'ユーザー登録が完了しました');
     }
 
     /**

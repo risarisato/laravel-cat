@@ -21,6 +21,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                // ログイン済みの場合のリダイレクト先を変更
                 return redirect(RouteServiceProvider::HOME);
             }
         }

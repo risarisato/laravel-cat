@@ -5,10 +5,23 @@
 - `./vendor/bin/sail artisan make:migration add_columns_to_users_table`で管理者用のマイグレーションファイルの作成
 - `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
 - `./vendor/bin/sail artisan make:request Admin/StoreUserRequest`で、登録のバリデーションを作成する
+- view側でエイリアスのAuthを使うために、`use Illuminate\Support\Facades\Auth;`を追加は面倒なので`\Auth::user()`とする
+
+#### ログアウト処理
+- POSTで送信するために、`@csrf`を追加する
+
+#### authミドルウェアで、ログインしていない場合は、ログイン画面にリダイレクトさせる
+- `intended()`は、ログイン前にアクセスしていたページにリダイレクトさせるメソッド
+- `->middleware('auth');`で、ログインしていない場合は、ログイン画面にリダイレクトさせる
 
 #### ログイン機能
 - `./vendor/bin/sail artisan make:controller Admin/AuthController`で、ログイン機能のコントローラーを作成する
 - AuthControllerクラスを使うのでコントローラーとweb.phpでuseする必要がある
+
+#### ルートグループについて
+- `prefix`は、URLの接頭辞を指定するメソッド
+- ルートグループを使って、admin以下のURLに対して、prefixでadminを付与する
+- middlewareは、ルートグループに対して、authミドルウェアを指定するメソッドで、admin以下のURLに対して、authミドルウェアを指定する
 
 
 ## 49 リレーション
@@ -23,9 +36,9 @@
 - `./vendor/bin/sail artisan db:seed --class=BlogSeeder2`
 - `./vendor/bin/sail artisan make:model Cat -m`で、マイグレーションファイルを作成する
 - `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
-- DBから読み込ませるviewで{{ $blog->category->name }} とすると、ブログのカテゴリー名の名前が表示される
-- associate()は、中間テーブルにデータを追加するメソッド
-- dissociate()は、中間テーブルからデータを削除するメソッド
+- DBから読み込ませるviewで`{{ $blog->category->name }}`とすると、ブログのカテゴリー名の名前が表示される
+- `associate()`は、中間テーブルにデータを追加するメソッド
+- `dissociate()`は、中間テーブルからデータを削除するメソッド
 
 - AdminBlogController.phpのedit(Blog $blog)メソッドでカテゴリーを取得するして、edit.blade.phpの<option value="{{ $category->id }}">{{ $category->name }}</option>プルリクエストでカテゴリーを表示させる
 

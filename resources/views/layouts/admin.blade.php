@@ -90,7 +90,8 @@
                         <span>設定</span>
                     </a>
 
-                    <form>
+                    <form method="POST" action="{{ route('admin.logout') }}">
+                        @csrf
                         <button type="submit" class="w-full flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded">
               <span class="inline-block mr-4">
                 <svg class="text-gray-600 w-5 h-5" viewbox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -108,10 +109,19 @@
     <div class="mx-auto lg:ml-80">
         <!-- ▼▼▼▼共通ヘッダー(PC)▼▼▼▼　-->
         <section class="py-5 px-6 bg-white shadow hidden lg:block">
+        <div class="flex items-center justify-end">↓がユーザでログインしているview側</div><br>
             <div class="flex items-center justify-end">
-                <span class="text-sm text-gray-500">店長</span>
-                <img class="ml-3 w-10 h-10 rounded-full object-cover object-right" src="/images/placeholders/admin/user.jpg" alt="">
-            </div>
+                {{-- <span class="text-sm text-gray-500">店長</span> これはハードコーティング--}}
+                {{-- img class="ml-3 w-10 h-10 rounded-full object-cover object-right" src="/images/placeholders/admin/user.jpg" alt=""> ハードコーティング--}}
+                @if(Auth::check())
+                    <span class="text-sm text-gray-500">{{ Auth::user()->name }}</span>
+                    <img class="ml-3 w-10 h-10 rounded-full object-cover object-right" src="{{ asset('storage/'. \Auth::user()->image) }}" alt="">
+                @endif
+            <form method="POST" action="{{ route('admin.logout') }}">
+                @csrf
+                <button type="submit" class="ml-3 text-sm text-gray-500 hover:text-gray-600">ログアウト</button>
+            </form>
+        </div>
         </section>
         <!-- ▲▲▲▲共通ヘッダー(PC)▲▲▲▲　-->
 

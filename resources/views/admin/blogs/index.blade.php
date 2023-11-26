@@ -29,7 +29,9 @@
                     </td>
                     {{-- <td class="font-medium">成長</td> --}}
                     <td class="font-medium">{{ $blog->category ? $blog->category->name : '' }}</td>
-                    <td class="font-medium">高橋</td>
+                    {{-- <td class="font-medium">高橋</td> --}}
+                    <td class="font-medium">{{ Auth::user()->name }}</td>
+                    {{-- td class="font-medium">{{ $blog->user->name }}</td> --}}
                     <td>{{ $blog->updated_at }}</td>
                     <td>
                         <div class="flex">

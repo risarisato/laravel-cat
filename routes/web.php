@@ -33,7 +33,6 @@ use App\Http\Controllers\Admin\AdminBlogController; // 追加
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AuthController;
 
-// ユーザー登録
 Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
 Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
 //Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login')->middleware('guest');

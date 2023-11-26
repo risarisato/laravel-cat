@@ -6,6 +6,7 @@
   <div class="container mx-auto">
     <p class="text-left px-4 pt-2 text-gray-400"><a href="#" class="text-blue-600 hover:underline">ホーム</a><span class="px-2">&gt</span>お問い合わせ</p>
     <h1 class="mt-2 text-4xl font-bold font-heading h-40 text-center p-12">お問い合わせ：バリデーション処理済み</h1>
+    <h3 class="mt-1 text-2xl font-bold font-heading h-7 text-center p-5">`https://github.com/Laravel-Lang/lang`から`config/app.php`の「locale」を「ja」にする</h3>
   </div>
 </section>
 
@@ -14,6 +15,11 @@
     <p class="text-left">以下のフォームに必要事項をご入力の上、ご送信下さい。<br>
       通常お問い合わせから3営業日以内にご入力いただいたメールアドレスに返信させていただきます。<br>
       なお、info@nekocafe.xx.xxからの返信が受信できるように事前に設定のご確認をお願い致します。
+    </p>
+    <a href="http://localhost:8025" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【問い合わせ確認Mailpit】</a>
+    <p>localhost:8025で確認できる<br>
+    docker-compose.ymlのports:<br>
+    - "8025:8025"で設定している
     </p>
     <div class="mt-8">
       <!-- ▼▼▼▼エラーメッセージ▼▼▼▼　-->

@@ -8,11 +8,29 @@
     <p class="text-center pt-5">ねこの可愛い仕草、自由気ままな雰囲気を見ることはもちろん、<br>
       ただ同じ空間にいるだけでも癒やされます<br>
       当店自慢のフワッフワのねこに触れ合うことで「幸せホルモン」が補給しませんか？<br>
-      <a href="/admin/blogs/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog作成】</a><br>
-      <a href="/admin/blogs" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog一覧】</a><br>
-      <a href="/admin/users/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者登録】</a><br>
-      <a href="/admin/login" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者ログイン】</a>
-
+      <table class="mt-8 mx-auto">
+        <tr>
+          <td><a href="/contact" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">1️⃣問い合わせjp対応</a></td>
+        </tr>
+        <tr>
+          <td><a href="http://localhost:8025" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">2️⃣問い合わせ確認Mailpit</a></td>
+        </tr>
+        <tr>
+          <td><a href="/admin/blogs/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">3️⃣管理者blog作成</a></td>
+        </tr>
+        <tr>
+          <td><a href="/admin/blogs" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">4️⃣管理者blog一覧</a></td>
+        </tr>
+        <tr>
+          <td><a href="/admin/users/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">5️⃣管理者登録</a></td>
+        </tr>
+        <tr>
+          <td><a href="/admin/login" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">6️⃣管理者ログイン</a></td>
+        </tr>
+        <tr>
+          <td><a href="http://localhost:8888" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">※データベース</a><h6>(おまけ)</h6></td>
+        </tr>
+      </table>
 
     </p>
     <div class="absolute right-0 bottom-0 transform translate-y-16">

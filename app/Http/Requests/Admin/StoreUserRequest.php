@@ -30,7 +30,7 @@ class StoreUserRequest extends FormRequest
             'introduction' => ['required', 'string', 'max:255'],
         ];
     }
-    
+
     // 属性名の翻訳
     public function attributes()
     {

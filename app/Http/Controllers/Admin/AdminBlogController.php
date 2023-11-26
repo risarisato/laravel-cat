@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBlogRequest;
 use App\Http\Requests\Admin\UpdateBlogRequest; // 追加
+use Illuminate\Support\Facades\Auth; // 追加
+use Illuminate\Support\Facades\Storage; // 追加
+use App\Models\Category; // 追加
+use App\Models\Cat; // 追加
+
 
 
 
@@ -23,7 +28,8 @@ class AdminBlogController extends Controller
 
         // ページネーションを使って10件を最新のものから取得する
         $blogs = Blog::latest('updated_at')->paginate(7);
-        return view('admin.blogs.index', ['blogs' => $blogs]);
+        $user = \Auth::user(); // 今、ログインしているユーザーを取得する
+        return view('admin.blogs.index', ['blogs' => $blogs, 'user' => $user]);
     }
 
     // ブログ登録

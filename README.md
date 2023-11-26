@@ -24,7 +24,7 @@
 - middlewareは、ルートグループに対して、authミドルウェアを指定するメソッドで、admin以下のURLに対して、authミドルウェアを指定する
 
 
-## 49 リレーション
+## リレーション
 - 中間テーブルとは、多対多の関係を持つテーブル：双方の外部キーを持つテーブル
 - `./vendor/bin/sail artisan make:model Category -m`で、マイグレーションファイルを作成する
 - `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
@@ -46,18 +46,18 @@
 - null合体演算子`??`は、左辺がnullの場合に右辺を返す演算子→`$blog->category->name ?? ''`で、カテゴリーがない場合にエラーにならないようにする
 
 
-## 48 コレクション
+## コレクション
 - コレクションとは、配列を拡張したもの
 - クエリビルダと同じ感覚で、検索やソート、順番変更、集計などができる
 
-45 クエリビルダ
+#### クエリビルダ
 - `$blogs = Blog::all();`は、「すべて」のデータを取得する
 - `$blogs = Blog::latest('updated_at')->limit(10)->get();`は、クエリビルダで、最新の10件を取得する
 - クエリビルダは、コード内でSQLを直接書くことができる
 - `./vendor/bin/sail artisan db:seed --class=BlogSeeder`で、テストデータを作成する(シード)
 
-41 モデルクラスの作成<br>
-42 データ取得resources\views\admin\blogs\index.blade.php
+#### モデルクラスの作成
+- データ取得resources\views\admin\blogs\index.blade.php
 - blade.phpのインデントの@foreach($blogs as $blog)から@endforeachに注意
 - findOrFail()は、IDがないページで、見つからない場合は404エラーを返す
 

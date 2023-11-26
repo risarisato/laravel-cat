@@ -53,3 +53,8 @@ Route::get('/admin/users/create', [App\Http\Controllers\Admin\UserController::cl
 
 // ユーザー登録処理のルーティング
 Route::post('/admin/users', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('admin.users.store');
+
+//　ユーザー編集ページのルーティング
+use App\Http\Controllers\Admin\AuthController; // 追加
+Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'login']);

@@ -6,6 +6,11 @@
 - `./vendor/bin/sail artisan migrate`で、マイグレーションを実行する
 - `./vendor/bin/sail artisan make:request Admin/StoreUserRequest`で、登録のバリデーションを作成する
 
+#### ログイン機能
+- `./vendor/bin/sail artisan make:controller Admin/AuthController`で、ログイン機能のコントローラーを作成する
+- AuthControllerクラスを使うのでコントローラーとweb.phpでuseする必要がある
+
+
 ## 49 リレーション
 - 中間テーブルとは、多対多の関係を持つテーブル：双方の外部キーを持つテーブル
 - `./vendor/bin/sail artisan make:model Category -m`で、マイグレーションファイルを作成する

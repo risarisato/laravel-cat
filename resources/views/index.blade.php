@@ -10,7 +10,8 @@
       当店自慢のフワッフワのねこに触れ合うことで「幸せホルモン」が補給しませんか？<br>
       <a href="/admin/blogs/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog作成】</a><br>
       <a href="/admin/blogs" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者blog一覧】</a><br>
-      <a href="/admin/users/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者登録】</a>
+      <a href="/admin/users/create" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者登録】</a><br>
+      <a href="/admin/login" class="mt-2 font-bold font-heading text-center text-3xl text-red-500">【管理者ログイン】</a>
 
 
     </p>
